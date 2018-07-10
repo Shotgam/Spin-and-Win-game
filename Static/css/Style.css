@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'Lasiver Black Weight';
+    src: url(fonts/Lasiver_Black.otf);
+}
+@font-face {
+    font-family: 'Lasiver Thin';
+    src: url(fonts/Lasiver_Thin.otf);
+}
+
+body { 
+    margin: 0 auto;
+    background-color:#4F1A6C;
+    font-family: 'Lasiver Black Weight';
+    
+}
+/*
+#Header {
+    height: 125px;
+    text-align: center;
+    border-bottom: 1px solid white;
+}
+#Header img {
+    padding-top:25px;
+    width: 50%;
+    height: 50%;
+}*/
+#Container_One {
+    background: linear-gradient(#00b48d, #19becf);
+    overflow:hidden;
+    height:900px;
+}
+#Spin_Wheel_Pointer {
+    position:relative;
+    top:-7%;
+}
+#Spin_Wheel_Pointer img {
+    width:15%;
+    position:absolute;
+    z-index:10;
+    left:43%;
+}
+#Spin_Wheel {
+    width:100%;
+    position:relative;
+    z-index:10;
+}
+#Spin_Wheel img {
+    width:100%;
+}
+#Spin_And_Win_Btn {
+    height:100px;
+    width:65%;
+    margin:0 auto;
+    background-color: white;
+    text-align:center;
+    color: #4F1A6C;
+    font-size: 28px;
+    font-weight:600;
+    line-height:110px;
+}
+#Text_Field {
+    font-size:1em;
+}
+#Text_Field_Img { 
+    width:65%
+}
+#Text_Field_Img img {
+    width: 100%;
+}
+.grid-100, .grid-80, .grid-50 {
+    min-height: 75px;
+    margin: 0 auto;
+    text-align:center;
+}
+.grid-100 {
+    width: 100%; 
+}
+.grid-80 {
+    width: 80%; 
+}
+.grid-50{
+    width:50%;
+}
+
+
+

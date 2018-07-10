@@ -1,0 +1,87 @@
+<html>  
+  <head>
+    <title>Spin And Win</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/Style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="static/js/Script.js"></script>
+        <script>
+            $('document').ready(function () {
+                var userAgent = navigator.userAgent.toLowerCase();
+                var isAndroid = userAgent.indexOf('android') > -1;
+                if (isAndroid) { 
+                    console.log("Is an Android device");
+                    $('body').css('width','50%');
+                    $('#Container_One').css('height','350px');
+                }
+                else { 
+                    console.log("Is not an Android device");
+                }
+            }); 
+        </script>
+    </head>
+    <script>
+      $('document').ready(function () {
+        var itemsToWin = ["half price on any tea!","buy 1 get 1 free on milky iced teas!", "a free mix-in","buy 1 get 1 free on fruity iced teas!","half price on any tea!","buy 1 get 1 half price on any tea!","a free upsize","buy 1 get 1 free on fruity iced teas!"];
+        $("#Spin_And_Win_Btn").click(function () {
+            var prizes = {{prizeWon}};
+            setTimeout(UpdatePrizeDetails, 3000);
+            $('#Spin_And_Win_Btn').remove();
+            $('body > div:nth-child(4)').text("THANKS FOR SPINNING");
+            $('body > div:nth-child(4)').css('color','white');
+            $('body > div:nth-child(4)').css('font-size','12px');
+            var rotation = {{rotation}}
+            SpinWheel(rotation, prizes);
+             
+        });
+        function SpinWheel(rotation, prizes) {
+          var rotate = rotation; 
+          console.log(rotate);
+          $('#Spin_Wheel img').css('transform','rotate('+rotate+'deg)');
+          $('#Spin_Wheel img').animate({  borderSpacing: rotation }, {
+            step: function(now,fx) {
+            $(this).css('-webkit-transform','rotate('+now+'deg)'); 
+            $(this).css('-moz-transform','rotate('+now+'deg)');
+            $(this).css('transform','rotate('+now+'deg)');
+          },
+          duration:3000,
+          },'swing');
+        }
+
+        function UpdatePrizeDetails() { 
+            var prizes = {{prizeWon}};
+            console.log('Update Prize Details prizes ' + prizes);
+            $('#Text_Field_Img').remove();
+            $('#Text_Prize').text('Youve won ' + itemsToWin[prizes]);
+        }
+    });
+    </script>
+  <body>    
+    <div id = "Container_One" style = "height: 600px;"> <!--Make 275px by default iOS-->
+        <div class = "grid-80" style = "margin-top:10px; margin-bottom:10px;">
+            <span id = "Text_field" style = "color:white;">
+            <span id = "Text_Field_Name" style = "color:#4F1A6C; font-size:22px;">{{Name}},</span><br>
+                <span id = "Text_Field_Img" style="width:45%;"><img src = "static/img/Spin_To_Win_Txt.png" style = "width:100%;"/><br></span>
+            <span id = "Text_Prize" style = "font-size:22px;">a Chatime treat!</span></span>
+        </div>
+        <div id = "Spin_Wheel_Pointer">
+            <!--<img src = "static/img/Tab_In_Back.png"style="width:12%;position:absolute;z-index:10;left:44.5%;"/>-->
+            <img src = "static/img/Pointer_Arrow.png"style="z-index:20;width:10%;left:45.5%;top:25"/>
+        </div>
+        <div class = "grid-100">
+            <div id = "Spin_Wheel">
+                <img src = 'static/img/Spin_Wheel_Final.png' style = "width:90%;"/>
+            </div>
+        </div>
+    </div>
+    <div class = "grid-80" style = "margin-top:25px;">
+        <div id = "Spin_And_Win_Btn" style = "font-size:12px; height: 50px; line-height:50px;">SPIN NOW!</div>
+    </div>
+    <div class = "grid-80" style = "margin-top:3px;">
+    <div id = "Text_Field">
+            <span style = "color:white; font-weight:100; font-family:'Lasiver Thin'">One spin only. Go to the offers section of app to claim your prize</span><br>
+            <span style = "color:#00b48d; font-weight:600;">See full terms and conditions</span>
+        </div>
+    </div>      
+  </body>
+</html>  
